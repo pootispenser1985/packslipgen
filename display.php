@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12./jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <script src="https://cdn.jsdelivr.net/jsbarcode/3.3.16/JsBarcode.all.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="main.css?v=3">
 </head>
 
 <body>
@@ -19,27 +20,36 @@
   $result = $db->query('SELECT * FROM Orders WHERE `PO_Num` = '.$PO);
   
   $this_line = $result->fetch_assoc();
+  $SO = "*".$this_line['SO_Num']."*";
+
 ?>
 
 <div class="container">
   <div class="row">
-    <h2 class="col-sm-12 text-center">Shipment Detail List</h2>
+    <h2 class="col-sm-6 text-center">Shipment Detail List</h2>
+    <div class="col-sm-6">
+      <img id="barcode">
+      </img>
+      <?php
+      echo '<script type="text/javascript">JsBarcode("#barcode", "'.$SO.'", {displayValue: false});</script>';
+      ?>
+    </div>
   </div>
   <div class="row">
     <div class="col-sm-6"><b>Customer: &nbsp</b><?php echo $this_line['Name']; ?></div>
-    <div class="col-sm-6 text-right"><b>PO: &nbsp</b><?php echo $this_line['PO_Num']; ?></div>
+    <div class="col-sm-6"><b>Order# &nbsp</b><?php echo $this_line['SO_Num']; ?></div>
   </div>
   <div class="row">
     <div class="col-sm-6"><b>Address: &nbsp</b><?php echo $this_line['Address']; ?></div>
-    <div class="col-sm-6 text-right"><b>Order# &nbsp</b><?php echo $this_line['SO_Num']; ?></div>
+    <div class="col-sm-6"><b>PO# &nbsp</b><?php echo $this_line['PO_Num']; ?></div>
   </div>
   <div class="row">
     <div class="col-sm-6"><b>Carrier: &nbsp</b><?php echo $this_line['Ship_Via']; ?></div>
-    <div class="col-sm-6 text-right"><b>Ship Date: &nbsp</b><?php echo $this_line['Ship_Date']; ?></div>
+    <div class="col-sm-6"><b>Ship Date: &nbsp</b><?php echo $this_line['Ship_Date']; ?></div>
   </div>
 
   <div class="row">
-    <section class="col-sm-12">
+    <section class="col-sm-10">
       <table>
         <tr>
           <th>Line</th><th>Part Number</th><th>Ship Quantity</th><th>Master Packs</th>
