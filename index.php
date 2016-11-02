@@ -4,21 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12./jquery.min.js"></script>
+  <script src="http://www.thrashcan.net/includes/jquery-3.1.1.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://thrashcan.net/includes/JsBarcode.all.js"></script>
   <link rel="stylesheet" type="text/css" href="main.css">
+  <title>Shipment Detail Generator</title>
 </head>
 <body>
   <div class="container">
-    <div class="col-sm-3">
-      <b>Put that PO number righ'chere ---></b>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <form id="searchForm" role="form">
+          <label for="poSearchBox">PO Number </label>
+          <input class="form-control" id="poSearchBox" type="text">
+          <input id="searchButton" type="submit" value="submit">
+        </form>
+      </div>
     </div>
-    <div class="col-sm-9">
-      <form action="display.php">
-        <input type="text" name="PO"></input>
-        <input type="submit" value="Lay it on me"></input>
-      </form>
-    </div>
+    <div id="displayArea" class="row"></div>
   </div>
 </body>
+
 </html>
+<script type="text/javascript" src="main.js?v=11116m"></script>
