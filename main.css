@@ -1,11 +1,26 @@
+#displayArea {
+  padding-top: 50px;
+}
+
+#searchRow {
+  padding-top: 10px;
+}
+
 table {
+  border: 2px solid black;
   width: 100%;
 }
 
 td {
+  border: 2px solid black;
+  min-height: 20px;
   width: 25%;
 }
 
 th {
+  border: 2px solid black;
   width: 25%;
+}
+
+tr {
 }

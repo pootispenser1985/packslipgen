@@ -11,8 +11,8 @@
 ?>
 
 <div class="row">
-  <h2 class="col-xs-6 text-center">Shipment Detail List</h2>
-  <div class="col-xs-6">
+  <h2 class="col-xs-6">Shipment Detail List</h2>
+  <div class="col-xs-6 text-right">
     <img id="barcode">
     </img>
     <?php
@@ -22,24 +22,24 @@
 </div>
 <div class="row">
   <div class="col-xs-6"><b>Customer: &nbsp</b><?php echo $this_line['Name']; ?></div>
-  <div class="col-xs-6"><b>Order# &nbsp</b><?php echo $this_line['SO_Num']; ?></div>
+  <div class="col-xs-6 text-right"><b>Order# &nbsp</b><?php echo $this_line['SO_Num']; ?></div>
 </div>
 <div class="row">
   <div class="col-xs-6"><b>Address: &nbsp</b><?php echo $this_line['Address']; ?></div>
-  <div class="col-xs-6"><b>PO# &nbsp</b><?php echo $this_line['PO_Num']; ?></div>
+  <div class="col-xs-6 text-right"><b>PO# &nbsp</b><?php echo $this_line['PO_Num']; ?></div>
 </div>
 <div class="row">
   <div class="col-xs-6"><b>Carrier: &nbsp</b><?php echo $this_line['Ship_Via']; ?></div>
-  <div class="col-xs-6"><b>Ship Date: &nbsp</b><?php echo $this_line['Ship_Date']; ?></div>
+  <div class="col-xs-6 text-right"><b>Ship Date: &nbsp</b><?php echo $this_line['Ship_Date']; ?></div>
 </div>
 
 <div class="row">
-  <section class="col-xs-10">
+  <section class="col-xs-12">
     <table>
-      <tr>
+      <tr height="20">
         <th>Line</th><th>Part Number</th><th>Ship Quantity</th><th>Master Packs</th>
       </tr>
-      <tr>
+      <tr height="35">
         <?php
           echo "<td>".$this_line['Line']."</td><td>".$this_line['SKU']."</td>";
           echo "<td>".$this_line['Ship_Qty']."</td>";
@@ -54,7 +54,7 @@
       break;
     }
     else {
-      echo "<tr>";
+      echo '<tr height="35">';
       echo "<td>".$this_line['Line']."</td><td>".$this_line['SKU']."</td>";
       echo "<td>".$this_line['Ship_Qty']."</td>";
       echo "<td>".($this_line['Ship_Qty'] / $this_line['Casepack'])."</td>";

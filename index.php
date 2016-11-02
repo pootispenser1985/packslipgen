@@ -7,16 +7,16 @@
   <script src="http://www.thrashcan.net/includes/jquery-3.1.1.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="http://thrashcan.net/includes/JsBarcode.all.js"></script>
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" type="text/css" href="main.css?v=110116g">
   <title>Shipment Detail Generator</title>
 </head>
 <body>
   <div class="container">
-    <div class="row">
+    <div id="searchRow" class="row">
       <div class="col-xs-6 col-xs-offset-3">
         <form id="searchForm" role="form">
           <label for="poSearchBox">PO Number </label>
-          <input class="form-control" id="poSearchBox" type="text">
+          <input id="poSearchBox" size="30" type="text">
           <input id="searchButton" type="submit" value="submit">
         </form>
       </div>
