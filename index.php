@@ -7,7 +7,7 @@
   <script src="http://www.thrashcan.net/includes/jquery-3.1.1.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="http://thrashcan.net/includes/JsBarcode.all.js"></script>
-  <link rel="stylesheet" type="text/css" href="main.css?v=110116h">
+  <link rel="stylesheet" type="text/css" href="main.css?v=110116k">
   <title>Shipment Detail Generator</title>
 </head>
 <body>

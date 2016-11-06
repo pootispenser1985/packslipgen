@@ -20,15 +20,15 @@
     ?>
   </div>
 </div>
-<div class="row">
+<div class="row heading">
   <div class="col-xs-6"><b>Customer: &nbsp</b><?php echo $this_line['Name']; ?></div>
   <div class="col-xs-6 text-right"><b>Order# &nbsp</b><?php echo $this_line['SO_Num']; ?></div>
 </div>
-<div class="row">
+<div class="row heading">
   <div class="col-xs-6"><b>Address: &nbsp</b><?php echo $this_line['Address']; ?></div>
   <div class="col-xs-6 text-right"><b>PO# &nbsp</b><?php echo $this_line['PO_Num']; ?></div>
 </div>
-<div class="row">
+<div class="row heading">
   <div class="col-xs-6"><b>Carrier: &nbsp</b><?php echo $this_line['Ship_Via']; ?></div>
   <div class="col-xs-6 text-right"><b>Ship Date: &nbsp</b><?php echo $this_line['Ship_Date']; ?></div>
 </div>
@@ -36,14 +36,18 @@
 <div class="row">
   <section class="col-xs-12">
     <table>
-      <tr height="20">
-        <th>Line</th><th>Part Number</th><th>Ship Quantity</th><th>Master Packs</th>
-      </tr>
-      <tr height="35">
+      <thead>
+        <tr height="20px">
+          <th width="21%">Part Number</th><th width="13%">Ship Quantity</th>
+          <th width="13%">Master Packs</th><th style="text-align: center" width="53%">Notes</th>
+        </tr>
+      </thead>
+      <tr height="45px">
         <?php
-          echo "<td>".$this_line['Line']."</td><td>".$this_line['SKU']."</td>";
-          echo "<td>".$this_line['Ship_Qty']."</td>";
-          echo "<td>".($this_line['Ship_Qty'] / $this_line['Casepack'])."</td>";
+          echo "<td>".$this_line['SKU']."</td>"; //part#
+          echo "<td align=\"center\">".$this_line['Ship_Qty']."</td>"; //num of units
+          echo "<td align=\"center\">".($this_line['Ship_Qty'] / $this_line['Casepack'])."</td>"; //masterpack quantity
+          echo "<td></td>";
         ?>
       </tr>
 <?php //fetch the next associative array from the sql result, shit out a table row,
@@ -54,10 +58,11 @@
       break;
     }
     else {
-      echo '<tr height="35">';
-      echo "<td>".$this_line['Line']."</td><td>".$this_line['SKU']."</td>";
-      echo "<td>".$this_line['Ship_Qty']."</td>";
-      echo "<td>".($this_line['Ship_Qty'] / $this_line['Casepack'])."</td>";
+      echo '<tr height="45px">';
+      echo "<td>".$this_line['SKU']."</td>"; //part#
+      echo "<td align=\"center\">".$this_line['Ship_Qty']."</td>"; //num of units
+      echo "<td align=\"center\">".($this_line['Ship_Qty'] / $this_line['Casepack'])."</td>"; //masterpack quantity
+      echo "<td></td>";
       echo "</tr>";
       }
   }
