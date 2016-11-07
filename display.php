@@ -47,9 +47,7 @@
       </thead>
       <tr height="45px">
         <?php
-          $mp_qty = 0;
-          $ip_qty = 0;
-          $ea_qty = 0;
+          $mp_qty = $ip_qty = $ea_qty = $mp_total = $ip_total = $qty_total = 0;
 
           if ($this_line['Ship_Qty'] % $this_line['Casepack'] == 0) {
             //do this if evenly divisible by mp
@@ -66,8 +64,10 @@
           echo "<td align=\"center\">".$mp_qty."</td>"; //masterpack quantity
           echo "<td align=\"center\">".$ip_qty."</td>"; //Innerpack quantity
           echo "<td></td>"; //note section
-          $mp_qty = 0;
-          $ip_qty = 0;
+          $mp_total = $mp_qty;
+          $ip_total = $ip_qty;
+          $qty_total = $this_line['Ship_Qty'];
+          $mp_qty = $ip_qty = 0;
         ?>
       </tr>
       <?php //fetch the next associative array from the sql result, shit out a table row,
@@ -95,10 +95,15 @@
             echo "<td align=\"center\">".$ip_qty."</td>"; //innerpack quantity
             echo "<td></td>"; //note section
             echo "</tr>";
-            $mp_qty = 0;
-            $ip_qty = 0;
+            $mp_total += $mp_qty;
+            $ip_total += $ip_qty;
+            $qty_total += $this_line['Ship_Qty'];
+            $mp_qty = $ip_qty = 0;
           }
         }
+        echo "<tr height=\"30px\"><td><b>Totals:</td>";
+        echo "<td align=\"center\"><b>".$qty_total."</b></td><td align=\"center\"><b>".$mp_total."</b></td><td align=\"center\"><b>".$ip_total;
+        echo "</b></td></tr>";
       ?>
     </table>
   </section>
