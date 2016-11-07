@@ -1,27 +1,34 @@
 <?php
   include 'vars.php';
   $PO = $_GET['PO'];
+  if ($PO == null) { die("<script>alert(\"PO Number can't be blank!\");</script>"); }
   $PO = "'".$PO."'";
 
   $db = new mysqli('localhost', $SQLUser, $SQLPass, 'packslipgen');
   $result = $db->query('SELECT * FROM Orders WHERE `PO_Num` = '.$PO);
   $this_line = $result->fetch_assoc();
-
+  if ($this_line === null) {
+    die("<script>alert(\"PO Not Found!\");</script>");
+  }
 
   //$SO = "*".$this_line['SO_Num']."*"; //this is for the barcode generator below
   //Not going to have  barcodes be the SO, because there could be multiple SOs
   //per PO num. Instead, we're going to build a list of SO nums and display that
-  $SO_result = $db->query('SELECT `SO_Num` FROM Orders WHERE `PO_Num` = '.$PO);
+  $SO_result = $db->query('SELECT DISTINCT `SO_Num` FROM Orders WHERE `PO_Num` = '.$PO);
   $SO_line = $SO_result->fetch_assoc();
+  if ($SO_line === null) {
+    die("<script>alert(\"PO Not Found!\");</script>");
+  }
+
   $SO = $SO_line['SO_Num'];
-  while (3<5) {
+  while ( 3 < 5 ) {
     $SO_line = $SO_result->fetch_assoc();
-    if $SO_line = null {
+    if ($SO_line == null) {
       break;
     }
     else {
-      $SO = $SO.$SO_line['SO_Num'];  //as long as the result set isn't null, keep concatenating
-    }  //this probably doesn't work, still screwing with it (11/7)
+      $SO = $SO.", ".$SO_line['SO_Num'];  //as long as the result set isn't null, keep concatenating
+    }
   }
 ?>
 
@@ -37,7 +44,7 @@
 </div>
 <div class="row heading">
   <div class="col-xs-6"><b>Customer: &nbsp</b><?php echo $this_line['Name']; ?></div>
-  <div class="col-xs-6 text-right"><b>Order# &nbsp</b><?php echo $this_line['SO_Num']; ?></div>
+  <div class="col-xs-6 text-right"><b>Order# &nbsp</b><?php echo $SO; ?></div>
 </div>
 <div class="row heading">
   <div class="col-xs-6"><b>Address: &nbsp</b><?php echo $this_line['Address']; ?></div>
