@@ -3,23 +3,9 @@ $("#searchForm").submit(function(event) {
   submitForm();
 });
 
-$("#printableBtn").click(makePrintable);
-$("#normalBtn").click(normalView);
-
 function submitForm() {
   var ponum = $("#poSearchBox").val();
-
-  var url = 'display.php?PO=' + ponum;
-
-  $("#displayArea").load(url);
-  $("#viewControls").show();
-  $("#poSearchBox").val(null);
-}
-
-function makePrintable() {
-  $("#searchForm").hide();
-}
-
-function normalView() {
-  $("#searchForm").show();
+  var url = 'display.php?PO=' + ponum; 
+  $("#poSearchBox").val(null); //erase contents of search box
+  $("#displayArea").load(url); //insert the results into the div displayArea
 }

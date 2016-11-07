@@ -7,7 +7,8 @@
   <script src="http://www.thrashcan.net/includes/jquery-3.1.1.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="http://thrashcan.net/includes/JsBarcode.all.js"></script>
-  <link rel="stylesheet" type="text/css" href="main.css?v=110116k">
+  <link rel="stylesheet" type="text/css" href="main.css?v=110616a">
+  <link rel="stylesheet" href="print.css?v=110616c" type="text/css" media="print">
   <title>Shipment Detail Generator</title>
 </head>
 <body>
@@ -21,15 +22,7 @@
         </form>
       </div>
     </div>
-    <div id="displayArea" class="row"></div>
-    <div id="viewControls" class="row">
-      <div class="col-xs-2">
-        <button id="printableBtn">Make Printable</button>
-      </div>
-      <div class="col-xs-2">
-        <button id="normalBtn">Normal View</button>
-      </div>
-      <script type="text/javascript">$("#viewControls").hide();</script>
+    <div id="displayArea" class="row">
     </div>
   </div>
 </body>

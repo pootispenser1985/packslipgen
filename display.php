@@ -38,8 +38,8 @@
     <table>
       <thead>
         <tr height="20px">
-          <th width="21%">Part Number</th><th width="13%">Ship Quantity</th>
-          <th width="13%">Master Packs</th><th style="text-align: center" width="53%">Notes</th>
+          <th width="23%">Part Number</th><th width="13%">Ship Qty</th>
+          <th width="13%">MP Qty</th><th style="text-align: center" width="51%">Notes</th>
         </tr>
       </thead>
       <tr height="45px">
