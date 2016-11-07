@@ -38,35 +38,68 @@
     <table>
       <thead>
         <tr height="20px">
-          <th width="23%">Part Number</th><th width="13%">Ship Qty</th>
-          <th width="13%">MP Qty</th><th style="text-align: center" width="51%">Notes</th>
+          <th width="23%">Part Number</th>
+          <th width="12%">Ship Qty</th>
+          <th width="12%">MP Qty</th>
+          <th width="12%">IP Qty</th>
+          <th style="text-align: center" width="41%">Notes</th>
         </tr>
       </thead>
       <tr height="45px">
         <?php
+          $mp_qty = 0;
+          $ip_qty = 0;
+          $ea_qty = 0;
+
+          if ($this_line['Ship_Qty'] % $this_line['Casepack'] == 0) {
+            //do this if evenly divisible by mp
+            $mp_qty = $this_line['Ship_Qty'] / $this_line['Casepack'];
+          }
+          else {
+            //do this is amt is not divisble into mp, go down next pack lvl
+            //figure ip_qty
+            $mp_qty = floor($this_line['Ship_Qty'] / $this_line['Casepack']);
+            $ip_qty = ($this_line['Ship_Qty'] % $this_line['Casepack']) / 4;
+          }
           echo "<td>".$this_line['SKU']."</td>"; //part#
           echo "<td align=\"center\">".$this_line['Ship_Qty']."</td>"; //num of units
-          echo "<td align=\"center\">".($this_line['Ship_Qty'] / $this_line['Casepack'])."</td>"; //masterpack quantity
-          echo "<td></td>";
+          echo "<td align=\"center\">".$mp_qty."</td>"; //masterpack quantity
+          echo "<td align=\"center\">".$ip_qty."</td>"; //Innerpack quantity
+          echo "<td></td>"; //note section
+          $mp_qty = 0;
+          $ip_qty = 0;
         ?>
       </tr>
-<?php //fetch the next associative array from the sql result, shit out a table row,
-      //keep doing this until you run out of results
-  while (3 < 5) {
-    $this_line = $result->fetch_assoc();
-    if ($this_line == NULL) {
-      break;
-    }
-    else {
-      echo '<tr height="45px">';
-      echo "<td>".$this_line['SKU']."</td>"; //part#
-      echo "<td align=\"center\">".$this_line['Ship_Qty']."</td>"; //num of units
-      echo "<td align=\"center\">".($this_line['Ship_Qty'] / $this_line['Casepack'])."</td>"; //masterpack quantity
-      echo "<td></td>";
-      echo "</tr>";
-      }
-  }
-?>
+      <?php //fetch the next associative array from the sql result, shit out a table row,
+            //keep doing this until you run out of results
+        while (3 < 5) {
+          $this_line = $result->fetch_assoc();
+          if ($this_line == NULL) { //break when you run out
+            break;
+          }
+          else {
+            if ($this_line['Ship_Qty'] % $this_line['Casepack'] == 0) {
+              //do this if evenly divisible by mp
+              $mp_qty = $this_line['Ship_Qty'] / $this_line['Casepack'];
+            }
+            else {
+              //do this is amt is not divisble into mp, go down next pack lvl
+              //figure ip_qty
+              $mp_qty = floor($this_line['Ship_Qty'] / $this_line['Casepack']);
+              $ip_qty = ($this_line['Ship_Qty'] % $this_line['Casepack']) / 4;
+            }
+            echo '<tr height="45px">';
+            echo "<td>".$this_line['SKU']."</td>"; //part#
+            echo "<td align=\"center\">".$this_line['Ship_Qty']."</td>"; //num of units
+            echo "<td align=\"center\">".$mp_qty."</td>"; //masterpack quantity
+            echo "<td align=\"center\">".$ip_qty."</td>"; //innerpack quantity
+            echo "<td></td>"; //note section
+            echo "</tr>";
+            $mp_qty = 0;
+            $ip_qty = 0;
+          }
+        }
+      ?>
     </table>
   </section>
 </div>
