@@ -7,20 +7,21 @@
   <script src="http://www.thrashcan.net/includes/jquery-3.1.1.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="http://thrashcan.net/includes/JsBarcode.all.js"></script>
-  <link rel="stylesheet" type="text/css" href="main.css?v=110616a">
+  <link rel="stylesheet" type="text/css" href="main.css?v=1107163">
   <link rel="stylesheet" href="print.css?v=110616c" type="text/css" media="print">
   <title>Shipment Detail Generator</title>
 </head>
 <body>
   <div class="container">
     <div id="searchRow" class="row">
-      <div class="col-xs-6 col-xs-offset-3">
+      <div class="col-xs-12 text-center">
         <form id="searchForm" role="form">
           <label for="poSearchBox">PO Number </label>
           <input id="poSearchBox" size="30" type="text">
           <input id="searchButton" type="submit" value="submit">
         </form>
       </div>
+      <div class="col-xs-12 text-center" id="errorArea"></div>
     </div>
     <div id="displayArea" class="row">
     </div>
@@ -28,4 +29,4 @@
 </body>
 
 </html>
-<script type="text/javascript" src="main.js?v=11116p"></script>
+<script type="text/javascript" src="main.js?v=1107167"></script>

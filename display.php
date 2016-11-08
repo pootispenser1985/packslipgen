@@ -1,14 +1,15 @@
+<script>showError("");</script> <!-- have to reset the error box each time -->
 <?php
   include 'vars.php';
   $PO = $_GET['PO'];
-  if ($PO == null) { die("<script>alert(\"PO Number can't be blank!\");</script>"); }
+  if ($PO == null) { die("<script>showError(\"PO Number can't be blank!\");</script>"); }
   $PO = "'".$PO."'";
 
   $db = new mysqli('localhost', $SQLUser, $SQLPass, 'packslipgen');
   $result = $db->query('SELECT * FROM Orders WHERE `PO_Num` = '.$PO);
   $this_line = $result->fetch_assoc();
   if ($this_line === null) {
-    die("<script>alert(\"PO Not Found!\");</script>");
+    die("<script>showError(\"PO Not Found!\");</script>");
   }
 
   //$SO = "*".$this_line['SO_Num']."*"; //this is for the barcode generator below
@@ -17,7 +18,7 @@
   $SO_result = $db->query('SELECT DISTINCT `SO_Num` FROM Orders WHERE `PO_Num` = '.$PO);
   $SO_line = $SO_result->fetch_assoc();
   if ($SO_line === null) {
-    die("<script>alert(\"PO Not Found!\");</script>");
+    die("<script>showError(\"PO Not Found!\");</script>");
   }
 
   $SO = $SO_line['SO_Num'];
