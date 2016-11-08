@@ -19,6 +19,17 @@
           <label for="poSearchBox">PO Number </label>
           <input id="poSearchBox" size="30" type="text">
           <input id="searchButton" type="submit" value="submit">
+          <br>
+          <label for="packTeam">Packing Team </label>
+          <select id="packTeam">
+            <option value "dist">Distribution</option>
+            <option value="retail">Retail</option>
+            <option value="singles">Singles</option>
+          </select>
+          <div id="uom" style="display: none;">
+            <input id="uomBox" size="2" type="text">
+            <label for="uomBox">Units per box</label>
+          </div>
         </form>
       </div>
       <div class="col-xs-12 text-center" id="errorArea"></div>
@@ -29,4 +40,4 @@
 </body>
 
 </html>
-<script type="text/javascript" src="main.js?v=1107167"></script>
+<script type="text/javascript" src="main.js?v=1107168"></script>
