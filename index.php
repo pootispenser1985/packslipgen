@@ -1,3 +1,4 @@
+<!-- Ship Detail Generator -->
 <!DOCTYPE html>
 <html>
 <head>

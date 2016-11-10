@@ -12,7 +12,7 @@
     die("<script>showError(\"PO Not Found!\");</script>");
   }
 
-  //$SO = "*".$this_line['SO_Num']."*"; //this is for the barcode generator below
+  $PO_Num = "*".$this_line['PO_Num']."*"; //this is for the barcode generator below
   //Not going to have  barcodes be the SO, because there could be multiple SOs
   //per PO num. Instead, we're going to build a list of SO nums and display that
   $SO_result = $db->query('SELECT DISTINCT `SO_Num` FROM Orders WHERE `PO_Num` = '.$PO);
@@ -34,24 +34,24 @@
 ?>
 
 <div class="row">
-  <h2 class="col-xs-6 col-xs-offset-3 text-center">Shipment Detail List</h2>
-  <!--<div class="col-xs-6 text-right">
+  <div class="col-xs-6 col-xs-offset-3 text-center">
     <img id="barcode">
     </img>
     <?php
-    //echo '<script type="text/javascript">JsBarcode("#barcode", "'.$SO.'", {displayValue: false});</script>';
+      echo '<script type="text/javascript">JsBarcode("#barcode", "'.$PO_Num.'", {displayValue: false});</script>';
+      echo '<p class="heading-font">'.$this_line['PO_Num'].'</p>';
     ?>
   </div> -->
 </div>
-<div class="row heading">
+<div class="row heading-font">
   <div class="col-xs-6"><b>Customer: &nbsp</b><?php echo $this_line['Name']; ?></div>
   <div class="col-xs-6 text-right"><b>Order# &nbsp</b><?php echo $SO; ?></div>
 </div>
-<div class="row heading">
+<div class="row heading-font">
   <div class="col-xs-6"><b>Address: &nbsp</b><?php echo $this_line['Address']; ?></div>
   <div class="col-xs-6 text-right"><b>PO# &nbsp</b><?php echo $this_line['PO_Num']; ?></div>
 </div>
-<div class="row heading">
+<div class="row heading-font">
   <div class="col-xs-6"><b>Carrier: &nbsp</b><?php echo $this_line['Ship_Via']; ?></div>
   <div class="col-xs-6 text-right"><b>Ship Date: &nbsp</b><?php echo $this_line['Ship_Date']; ?></div>
 </div>
