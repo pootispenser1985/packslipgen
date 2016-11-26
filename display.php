@@ -22,6 +22,7 @@
   }
 
   $SO = $SO_line['SO_Num'];
+  //this loop builds the list of SO Numbers
   while ( 3 < 5 ) {
     $SO_line = $SO_result->fetch_assoc();
     if ($SO_line == null) {
