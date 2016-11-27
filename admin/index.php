@@ -7,7 +7,7 @@ http://www.w3schools.com/php/php_file_upload.asp -->
 </head>
 <body>
 
-  <form action="index.php" method="post" enctype="multipart/form-data">
+  <form action="uploader.php" method="post" enctype="multipart/form-data">
     <p style="width: 650px;">Give me a CSV file containing orders you'd like to add to the database.
       Note that the file cannot contain any commas or quotes inside the data fields.
       The easiest way to fix this is to open the CSV in Excel, do a "find and replace",
@@ -19,9 +19,9 @@ http://www.w3schools.com/php/php_file_upload.asp -->
     </p>
     <input type="file" name="fileUpload" id="fileUpload">
     <input type="submit" value="Upload Data!" name="submit">
-
-    <?php var_dump($_FILES); ?>
+  
     <br><br>
+    <!--
     <?php
     $target_file = "/Library/WebServer/Documents/shipdetailgenerator/admin/uploads/".basename($_FILES["fileUpload"]["name"]);
     echo $target_file;
@@ -30,7 +30,7 @@ http://www.w3schools.com/php/php_file_upload.asp -->
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
-    ?>
+    ?> -->
   </form>
 </body>
 </html>
