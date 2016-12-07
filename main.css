@@ -1,3 +1,50 @@
+/* FROM THE BOL PART */
+#addressInfo {
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black; }
+  #addressInfo p {
+    line-height: 1.5em; }
+
+#header {
+  border: 2px solid black; }
+
+#orderInfo table tr {
+  height: 20px; }
+
+#refnums {
+  border-left: 2px solid black; }
+
+#signatures div {
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  min-height: 120px; }
+
+#specialInstructions {
+  border-bottom: 2px solid black;
+  min-height: 60px; }
+
+.bolTable th {
+  font-size: 12px;
+}
+
+.bolTable tr {
+  font-size: 10px;
+}
+
+.LRborder {
+  border-left: 2px solid black;
+  border-right: 2px solid black; }
+
+.smallest {
+  font-size: 7px; }
+
+small {
+  font-size: 9px;
+}
+
+/*END BOL PART */
+
 #displayArea {
   padding-top: 30px;
   margin-bottom: 50px;
@@ -36,7 +83,4 @@ th {
   border: 2px solid black;
   font-size: 1.5em;
   text-align: center;
-}
-
-tr {
 }

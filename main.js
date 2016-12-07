@@ -5,7 +5,17 @@ $("#searchForm").submit(function(event) {
 
 function submitForm() {
   var ponum = $("#poSearchBox").val();
-  var url = 'packslip/display.php?PO=' + ponum;
+  var doctype = $("#docSelect").val();
+  var url = "";
+
+  if (doctype === "bol") {
+    url = 'bol/display.php?PO=' + ponum;
+  }
+
+  else if (doctype === "packslip") {
+    url = 'packslip/display.php?PO=' + ponum;
+  }
+  
   $("#poSearchBox").val(null); //erase contents of search box
   $("#displayArea").load(url); //insert the results into the div displayArea
 }

@@ -8,7 +8,7 @@
   <script src="http://www.thrashcan.net/includes/jquery-3.1.1.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="http://thrashcan.net/includes/JsBarcode.all.js"></script>
-  <link rel="stylesheet" type="text/css" href="main.css?v=1107163">
+  <link rel="stylesheet" type="text/css" href="main.css?v=120716c">
   <link rel="stylesheet" href="print.css?v=110616c" type="text/css" media="print">
   <title>Shipment Detail Generator</title>
 </head>
@@ -21,11 +21,10 @@
           <input id="poSearchBox" size="30" type="text">
           <input id="searchButton" type="submit" value="submit">
           <br>
-          <label for="packTeam">Packing Team </label>
-          <select id="packTeam">
-            <option value "dist">Distribution</option>
-            <option value="retail">Retail</option>
-            <option value="singles">Singles</option>
+          <label for="docSelect">Document Type </label>
+          <select id="docSelect">
+            <option value="packslip">Packing List</option>
+            <option value="bol">Bill of Lading</option>
           </select>
           <div id="uom" style="display: none;">
             <input id="uomBox" size="2" type="text">
