@@ -5,7 +5,7 @@ $("#searchForm").submit(function(event) {
 
 function submitForm() {
   var ponum = $("#poSearchBox").val();
-  var url = 'display.php?PO=' + ponum;
+  var url = 'packslip/display.php?PO=' + ponum;
   $("#poSearchBox").val(null); //erase contents of search box
   $("#displayArea").load(url); //insert the results into the div displayArea
 }
